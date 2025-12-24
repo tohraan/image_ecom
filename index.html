@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRZN OPS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#A3B8CC", // Ice Blue/Grey accent
+                        "background-light": "#60748A", // Muted Blue-Grey from screenshot
+                        "background-dark": "#1a202c", // Deep dark blue/grey for dark mode
+                        "card-light": "#708499",
+                        "card-dark": "#2d3748",
+                        "text-light": "#E2E8F0",
+                        "text-dark": "#CBD5E0",
+                        "accent-blue": "#BFDBFE",
+                        'frzn-primary': '#6484a4',
+                        'frzn-secondary': '#1F2937',
+                        'checkout-bg': '#647D94',
+                        'checkout-surface': '#536B82',
+                        'input-bg': 'rgba(255, 255, 255, 0.1)',
+                    },
+                    fontFamily: {
+                        display: ["Teko", "sans-serif"],
+                        body: ["Chakra Petch", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                        oswald: ["Oswald", "sans-serif"],
+                        mono: ["Roboto Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px",
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.1%22/%3E%3C/svg%3E')",
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        html {
+            height: -webkit-fill-available;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrolling-text {
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .glitch-effect {
+            position: relative;
+        }
+        .glitch-effect::before,
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #60748A;
+        }
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -1px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 9px, 0); }
+            5% { clip: rect(78px, 9999px, 94px, 0); }
+            10% { clip: rect(6px, 9999px, 83px, 0); } 100% { clip: rect(62px, 9999px, 21px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 80px, 0); }
+            5% { clip: rect(12px, 9999px, 14px, 0); }
+            10% { clip: rect(98px, 9999px, 4px, 0); } 100% { clip: rect(33px, 9999px, 49px, 0); }
+        }
+        .texture-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDb4OSWiNzoef1nfm1HOCF33BRdHoXXqasowRODFTLn3pUH8mLNrnla5eu2y2O84U37DMpF01Uk-OoStt2CCgccvIq-Ms20VBI5hgxSG3x_Pi77Y_GPBN4q5oTGy9A3XE_9iOIh-sKWo0Wz61sR1XhvGY_WcJ4BH2ljhGW8XotSBFYrLBKvAHuh2wZnKmtww3BfUmmVGJwyzWELZ7yVJ3HX4GUirQ2sK3Ym28LwpcQUN8QVizlmrhzk9TwzAxYXdvlkJukOPfeapt7T);
+            pointer-events: none
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body class="bg-background-light text-text-light font-body selection:bg-accent-blue selection:text-background-dark antialiased transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
